@@ -7,16 +7,16 @@ import java.util.Scanner;
 public class ListQueries {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		
-		List<Integer> ints = new ArrayList<Integer>();
 
 		int capacity = scanner.nextInt();
+		
+		List<Integer> ints = new ArrayList<Integer>(capacity);
 		
 		for (int i = 0; i < capacity; i++) {
 			ints.add(scanner.nextInt());
 		}
 		
-		for (int i = scanner.nextInt(); i >= 0; i--) {
+		for (int i = scanner.nextInt(); i > 0; i--) {
 			switch(scanner.next()) {
 				case "Insert":
 					ints.add(scanner.nextInt(), scanner.nextInt());
@@ -29,6 +29,6 @@ public class ListQueries {
 		
 		scanner.close();
 		
-		System.out.println(ints.toString().replaceAll("[|]|,", ""));
+		System.out.println(ints.toString().replaceAll("(\\[|\\]|,)+", ""));
 	}
 }
